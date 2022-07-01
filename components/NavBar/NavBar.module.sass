@@ -1,0 +1,61 @@
+@import '../../styles/_functions'
+@import '../../styles/_variables'
+
+.main
+    color: white
+    background: $gradient-1
+    @include w-h(100%, 75px)
+    @include l-t(0px, 0px)
+    position: fixed
+    z-index: 1
+
+    .top
+        @include w-h(100%, 50%)
+        @include flex-display()
+        button
+            display: flex
+            align-items: center
+            background: transparent
+        div
+            display: flex
+            align-items: center
+        :nth-child(1)
+            @include w-h(25%, 100%)
+            justify-content: left
+        :nth-child(2)
+            @include w-h(50%, 100%)
+            justify-content: center
+        :nth-child(3)
+            @include w-h(25%, 100%)
+            justify-content: right
+    .bottom
+        @include w-h(100%, 50%)
+        @include flex-display()
+        flex-direction: row
+        input
+            @include w-h(70%, 70%)
+            background: $white
+            border-radius: $border
+            text-align: center
+            z-index: 2
+        button
+            display: flex
+            align-items: center
+            background: transparent
+
+.settings
+    transform: scale(1.5)
+    margin-left: 15px
+
+.logo
+    @include w-h(50px, 50px)
+    transform: scale(2)
+
+.carrinhoCompras
+    transform: scale(1.7)
+    margin-right: 15px
+
+.search
+    @include w-h(25px, 25px)
+    transform: scale(1.5)
+    padding-left: 15px
