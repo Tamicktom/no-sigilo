@@ -1,6 +1,6 @@
 import React from 'react'
 import Style from './MainBanner.module.sass'
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Pagination, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -12,40 +12,59 @@ import carouselImage_1 from '../../pages/images/banner-1-768-500.png'
 
 export default function MainBanner(props: any) {
     let count = 0;
+
     const slideImg = [
         {
             key: ('slide_' + count++),
-            src: carouselImage_1,
+            src: 'https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200',
             width: '768px',
             height: '500px',
-        }
+        },
+        {
+            key: ('slide_' + count++),
+            src: 'https://images.pexels.com/photos/15386/pexels-photo.jpg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200',
+            width: '768px',
+            height: '500px',
+        },
     ]
 
+    const [slides, setSlides] = React.useState('');
+
+    const imgHandler = () => {
+        const slides: any = [];
+        slideImg.forEach(e => {
+            slides.push(
+                <SwiperSlide>
+                    <div className={Style.img_holder}>
+                        <Image
+                            key={e.key}
+                            src={e.src}
+                            width={e.width}
+                            height={e.height}
+                            layout="intrinsic"
+                        />
+                    </div>
+                </SwiperSlide>
+            )
+        })
+        setSlides(slides);
+        return slides;
+    }
     return (
         <div className={Style.mainBanner}>
             <Swiper
-                // install Swiper modules
-                modules={[Navigation, Pagination, Scrollbar, A11y]}
-                spaceBetween={50}
+                modules={[Pagination, A11y]}
+                spaceBetween={5}
                 slidesPerView={1}
-                navigation
-                pagination={{ clickable: true }}
-                scrollbar={{ draggable: true }}
-                onSwiper={(swiper) => console.log(swiper)}
-                onSlideChange={() => console.log('slide change')}
+                loop={true}
+                speed={300}
                 className={Style.carousel}
             >
-                <SwiperSlide>
-                    <Image
-                        key={slideImg[0].key}
-                        src={slideImg[0].src}
-                        width={slideImg[0].width}
-                        height={slideImg[0].height}
-                        layout="responsive"
-                    />
-                </SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
+                {
+                    slides ? slides : imgHandler()
+                }
             </Swiper>
         </div>
+
     )
 }

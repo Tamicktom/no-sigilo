@@ -1,0 +1,86 @@
+@import '../../styles/_functions'
+@import '../../styles/_variables'
+
+.holder
+    @include w-h (100%, 150px)
+    @include flex-display()
+    border-top: 1px solid transparentize($card-border-top-color, $transparency)
+    padding-top: 10px
+    color: $white
+    >div
+        height: 150px
+
+.left
+    width: 25%
+    @include flex-display()
+
+.right
+    width: 75%
+    font-family: $default-font
+
+.discount_holder
+    @include w-h (100%, 25px)
+    display: flex
+    justify-content: right
+    align-items: center
+
+.discount
+    @include w-h (fit-content, 100%)
+    @include flex-display()
+    padding: 0 10px
+    border: 1px solid $white
+    border-radius: $border
+    font-size: 16pt
+    margin-right: 10px
+
+.product_info
+    @include w-h (100%, 125px)
+
+    //* @note Informações do produto
+
+    .top
+        @include w-h (100%, 40%)
+        .company_brand
+            font-size: 10pt
+            font-weight: bold
+        .name_short_description
+            font-size: 12pt
+            line-height: 90%
+
+    .bottom
+        @include w-h (100%, 70%)
+        @include flex-display()
+        .bottom_left
+            @include w-h (60%, 100%)
+            font-weight: 700
+            .price
+                font-size: 32pt
+                line-height: 90%
+                @include gradient-text ($gradient-1)
+            .small_price
+                font-size: 16pt
+            .price_complement
+                font-size: 12pt
+                line-height: 25px
+        .bottom_right
+            @include w-h (40%, 100%)
+            display: flex
+            justify-content: left
+            align-items: flex-start
+            >div
+                @include w-h (fit-content, 100%)
+                display: flex
+                flex-direction: column
+                font-family: $default-font
+                font-weight: 700
+                font-size: 12pt
+                text-align: center
+                :nth-child(1)
+                    line-height: 90%
+                :nth-child(2)
+                    line-height: 90%
+                :nth-child(3)
+                    line-height: 90%
+            .qtd
+                @include gradient-text ($gradient-1)
+                font-size: 32pt
