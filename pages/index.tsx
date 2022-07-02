@@ -13,6 +13,9 @@ const Home: NextPage = () => {
       <Head>
         <title>Sex Shop No Sigilo</title>
         <meta name="description" content="E-commerce de produtos eróticos." />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <style data-href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"/>
         <style>
           {`
             *{
