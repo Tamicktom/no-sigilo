@@ -18,6 +18,22 @@ export default function SuperOffers({ section_name }: Props) {
                 product_qtd={10}
                 product_image=''
             />
+            <HorizontalCard
+                product_price={0.5}
+                product_company_brand='Teste'
+                product_name='Gel'
+                product_short_description='Descrição breve, Descrição breve, Descrição breve, Descrição breve, '
+                product_qtd={10}
+                product_image=''
+            />
+            <HorizontalCard
+                product_price={0.5}
+                product_company_brand='Teste'
+                product_name='Gel'
+                product_short_description='Descrição breve, Descrição breve, Descrição breve, Descrição breve, '
+                product_qtd={10}
+                product_image=''
+            />
         </div>
     )
 }

@@ -1,9 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-
 import Style from './HorizontalCard.module.sass';
-
-import default_img from '../../images/genérico.png'
 
 type Props = {
     product_image: string
@@ -14,6 +11,7 @@ type Props = {
     product_short_description: string
 }
 
+const default_img = '/images/default_img_product.png'
 
 export default function HorizontalCard({
     product_image,
@@ -37,7 +35,7 @@ export default function HorizontalCard({
             <div className={Style.right}>
                 <div className={Style.discount_holder}>
                     <div className={Style.discount}>
-                        25% OFF
+                        {'25'}% OFF
                     </div>
                 </div>
 

@@ -22,9 +22,11 @@ const Home: NextPage = () => {
               outline: 0;
               box-shadow: none;
             }
+            body{
+              background: rgb(0,0,0);
+            }
           `}
         </style>
-        <link rel="stylesheet" href="../styles/global.css" />
       </Head>
 
       <NavBar />

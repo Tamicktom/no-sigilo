@@ -8,36 +8,37 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import Image from 'next/image';
 
-import carouselImage_1 from '../../pages/images/banner-1-768-500.png'
-
 export default function MainBanner(props: any) {
-    let count = 0;
+    const id = React.useId();
 
     const slideImg = [
         {
-            key: ('slide_' + count++),
+            src: '/images/teste.png',
+            width: '768px',
+            height: '500px',
+        },
+        {
             src: 'https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200',
             width: '768px',
             height: '500px',
         },
         {
-            key: ('slide_' + count++),
             src: 'https://images.pexels.com/photos/15386/pexels-photo.jpg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200',
             width: '768px',
             height: '500px',
         },
     ]
 
-    const [slides, setSlides] = React.useState('');
+    const [slides, setSlides] = React.useState(false);
 
     const imgHandler = () => {
         const slides: any = [];
+        let counter = 0;
         slideImg.forEach(e => {
             slides.push(
-                <SwiperSlide>
+                <SwiperSlide key={id + '_slide_key_' + counter}>
                     <div className={Style.img_holder}>
                         <Image
-                            key={e.key}
                             src={e.src}
                             width={e.width}
                             height={e.height}
@@ -45,7 +46,8 @@ export default function MainBanner(props: any) {
                         />
                     </div>
                 </SwiperSlide>
-            )
+            );
+            counter++;
         })
         setSlides(slides);
         return slides;
