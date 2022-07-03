@@ -1,15 +1,25 @@
 import React from "react";
 import Style from "./NavBar.module.sass";
+
+//* Components
+import OptionsOverlay from "../OptionsOverlay/OptionsOverlay";
 import Settings from "../../design/icons/Settings/Settings";
 import Logo from "../../design/icons/Logo/Logo";
 import CarrinhoCompras from '../../design/icons/CarrinhoCompras/CarrinhoCompras';
 import Search from '../../design/icons/Search/Search';
+import ShoppingKartOverlay from "../ShoppingKartOverlay/ShoppingKartOverlay";
 
 export function NavBar({ }) {
 
-  function handleOverlay() {
-    console.log("overlay");
+  const [isOpenOptions, setIsOpenOptions] = React.useState(false);
+  const [isOpenShoppingKart, setIsOpenShoppingKart] = React.useState(false);
 
+  const toggleOptions = () => {
+    setIsOpenOptions(!isOpenOptions);
+  }
+
+  const toggleShoppingKart = () => {
+    setIsOpenShoppingKart(!isOpenShoppingKart);
   }
 
   function handleSearch() {
@@ -18,16 +28,22 @@ export function NavBar({ }) {
 
   return (
     <nav className={Style.main}>
+      <OptionsOverlay
+        isOpen={isOpenOptions}
+        toggler={toggleOptions} />
+      <ShoppingKartOverlay
+        isOpen={isOpenShoppingKart}
+        toggler={toggleShoppingKart} />
       <div className={Style.top}>
-        <button onClick={() => { handleOverlay() }}>
+        <button onClick={() => { toggleOptions() }}>
           <Settings className={Style.settings} />
         </button>
         <div>
           <Logo className={Style.logo} />
         </div>
-        <div>
+        <button onClick={toggleShoppingKart}>
           <CarrinhoCompras className={Style.carrinhoCompras} />
-        </div>
+        </button>
       </div>
       <div className={Style.bottom}>
         <input placeholder='Pesquisar' />

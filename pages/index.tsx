@@ -1,3 +1,4 @@
+import React from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Style from './index.module.sass';
@@ -8,6 +9,7 @@ import MainBanner from '../components/MainBanner/MainBanner';
 import SuperOffers from '../components/SuperOfertas/SuperOffers';
 
 const Home: NextPage = () => {
+
   return (
     <div className={Style.pageComposition}>
       <Head>
@@ -15,7 +17,7 @@ const Home: NextPage = () => {
         <meta name="description" content="E-commerce de produtos eróticos." />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <style data-href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"/>
+        <style data-href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" />
         <style>
           {`
             *{
