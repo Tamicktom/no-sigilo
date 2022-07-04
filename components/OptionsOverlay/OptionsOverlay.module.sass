@@ -2,10 +2,69 @@
 @import '../../styles/_functions'
 
 .holder
-    display: none
     @include l-t (0px, 0px)
-    @include w-h (100%, 100%)
+    @include w-h (0%, 100%)
+    @include flex-display
+    flex-direction: row
     position: fixed
     z-index: 3
-    background: rgb(50,50,50)
-    transition: all 0.7s ease-in-out
+    transition: all 0.3s ease-in-out
+    background: rgba($bg-color, 0.9)
+
+.login
+    @include w-h (100%, 75px)
+    @include flex-display
+    flex-direction: row
+    background: $gradient-1
+
+.userImg
+    @include w-h (25%, 100%)
+    @include l-t (0px, 0px)
+    border-radius: 50%
+    margin-left: 10px
+
+.loginInfo
+    @include w-h(75%, 100%)
+    @include flex-display
+    :nth-child(1)
+        @include w-h(75%, 100%)
+    :nth-child(2)
+        @include w-h(25%, 100%)
+
+.navigation
+    @include w-h (100%, fit-content)
+
+.left
+    @include w-h (80%, 100%)
+    background: rgba($bg-color, 0.9)
+
+.right
+    @include w-h (20%, 100%)
+
+//* Li Section
+.li_item
+    @include w-h(100%, 40px)
+    background: transparent
+
+.link
+    @include w-h(100%, 100%)
+    margin-top: 10px
+    background: transparent
+
+.li_buttom
+    @include w-h(100%, 100%)
+    text-align: left
+    font-family: $default-font
+    font-size: 16pt
+    font-weight: bold
+    padding-left: 15px
+    cursor: pointer
+    background: transparent
+    transition: all 0.3s ease-in-out
+    color: $white
+    margin-top: 10px
+    user-select: none
+    &:hover
+        background: rgba($white, 0.3)
+    &:active
+        background: rgba($bg-color, 0.5)

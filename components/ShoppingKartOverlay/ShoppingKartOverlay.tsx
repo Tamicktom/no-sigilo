@@ -15,15 +15,8 @@ export default function ShoppingKartOverlay({
     const [style, setStyle] = React.useState({})
 
     useEffect(() => {
-        if (isOpen) {
-            setStyle({
-                display: 'block'
-            })
-        } else {
-            setStyle({
-                display: 'none'
-            })
-        }
+        if (isOpen) setStyle({ display: 'block' })
+        else setStyle({ display: 'none' })
     }
         , [isOpen])
 
@@ -33,6 +26,8 @@ export default function ShoppingKartOverlay({
             className={Style.holder}
             style={style}
             onClick={toggler}
-        >Overlay do Carrinho em construção :3</div>
+        >
+            <h3>Overlay do Carrinho em construção :3</h3>
+        </div>
     )
 }
