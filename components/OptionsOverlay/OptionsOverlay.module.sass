@@ -28,8 +28,13 @@
     @include flex-display
     :nth-child(1)
         @include w-h(75%, 100%)
+        @include flex-display
+        font-size: 12pt
+        font-weight: 500
+        font-family: $default-font
     :nth-child(2)
         @include w-h(25%, 100%)
+        @include flex-display
 
 .navigation
     @include w-h (100%, fit-content)

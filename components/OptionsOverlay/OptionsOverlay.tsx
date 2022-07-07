@@ -5,10 +5,10 @@ import Image from 'next/image';
 
 type Props = {
     isOpen: boolean,
-    toggler: any
+    toggler: () => VoidFunction
 }
 
-const options: any = [
+const options: object[] = [
     {
         name: 'Home',
         link: '/'
@@ -19,21 +19,23 @@ const options: any = [
     },
     {
         name: 'Meus Pedidos',
-        link: '/meus-pedidos'
+        link: '/meus_pedidos'
     },
     {
         name: 'Lista de desejos',
-        link: '/lista-desejos'
+        link: '/lista_desejos'
     },
     {
         name: 'Quem somos',
-        link: '/quem-somos'
+        link: '/about'
     },
     {
         name: 'Contato',
         link: '/contato'
     }
 ]
+
+const noUserText: string = 'Clique aqui para logar na sua conta.';
 
 export default function OptionsOverlay({
     isOpen,
@@ -42,19 +44,21 @@ export default function OptionsOverlay({
 
     const [overlayStyle, setOverlayStyle] = React.useState({})
     const [optionsObj, setOptionsObj]: any = React.useState(false)
+    const [userName, setUserName] = React.useState(noUserText);
     const id = React.useId();
 
     React.useEffect(() => {
         if (isOpen) {
             setOverlayStyle({ width: '100%' });
-            setTimeout(() => { setOptionsObj(options) }, 180)
+            setTimeout(() => { setOptionsObj(options) }, 180);
+            setTimeout(() => { setUserName(noUserText) }, 180);
         }
         else {
             setOverlayStyle({ width: '0%' })
             setTimeout(() => { setOptionsObj(false) }, 150)
+            setTimeout(() => { setUserName('') }, 150)
         }
     }, [isOpen])
-
 
     const renderOptions = () => {
         const res: any = [];
@@ -83,12 +87,15 @@ export default function OptionsOverlay({
                         />
                     </div>
                     <div className={Style.loginInfo}>
-                        <div></div>
+                        <div>
+                            {userName}
+                        </div>
                         <div>
                             <Image
                                 src="/images/x.svg"
-                                width={'20%'}
-                                height={'20%'}
+                                width={'35%'}
+                                height={'35%'}
+                                onClick={() => toggler()}
                             />
                         </div>
                     </div>
@@ -104,7 +111,11 @@ export default function OptionsOverlay({
 
             <div
                 className={Style.right}
-                onClick={() => toggler()}>
+                onClick={() => toggler()}
+                style={{
+                    background: "rgba(0,0,0,0.1)",
+                }}
+            >
             </div>
         </div>
     )
