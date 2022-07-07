@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 type Props = {
     isOpen: boolean,
-    toggler: () => VoidFunction
+    toggler: any
 }
 
 const options: object[] = [
