@@ -1,0 +1,67 @@
+//* import _functions and _variables from ../../styles
+@import "../../styles/functions"
+@import "../../styles/variables"
+
+.holder
+    @include w-h(100%, fit-content)
+    font-family: $default-font
+    font-size: 1rem
+    font-weight: 400
+    padding-top: 1rem
+
+.top
+    @include w-h(100%, 90px)
+    @include flex-display
+    flex-direction: column
+    .top_top
+        @include w-h(100%, 40px)
+        @include flex-display
+        flex-direction: row
+        .left
+            @include w-h(70%, 100%)
+            padding-left: 10px
+        .right
+            @include w-h(30%, 100%)
+            background: red //! apagar dps
+            padding-right: 10px
+    .top_bottom
+        @include w-h(100%, 50px)
+        @include flex-display
+        >p
+            margin-left: 10px
+
+.brand
+    font-weight: 700
+    font-size: 1.2rem
+
+.product_code
+    font-size: 1rem
+    font-weight: 700
+    margin-bottom: 1rem
+
+.image_holder
+    @include w-h(100%, 400px)
+    @include flex-display
+    flex-direction: row
+    background: green //! apagar dps
+    margin-top: 25px
+    .sub_pictures
+        @include w-h(20%, 100%)
+        @include flex-display
+        flex-direction: column
+        >div
+            width: 90%
+            margin-bottom: 10px
+            border: 2px solid $color-1
+            border-radius: $border
+    .main_image
+        @include w-h(80%, 100%)
+        @include flex-display
+        background: red //! apagar dps
+
+.price_info_holder
+    @include w-h(100%, 150px)
+    @include flex-display
+    flex-direction: row
+    background: cyan //! apagar dps
+    margin-top: 10px

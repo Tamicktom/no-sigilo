@@ -28,15 +28,19 @@ export function NavBar({ }) {
 
   return (
     <nav className={Style.main}>
+      {/* @note Overlays */}
       <OptionsOverlay
         isOpen={isOpenOptions}
         toggler={toggleOptions} />
+
       <ShoppingKartOverlay
         isOpen={isOpenShoppingKart}
         toggler={toggleShoppingKart} />
+
+
       <div className={Style.top}>
-        <button onClick={() => { toggleOptions() }}>
-          <Settings className={Style.settings} />
+        <button >
+          <Settings className={Style.settings} onClick={() => toggleOptions()} />
         </button>
         <div>
           <Logo className={Style.logo} />
@@ -47,9 +51,10 @@ export function NavBar({ }) {
       </div>
       <div className={Style.bottom}>
         <input placeholder='Pesquisar' />
-        <button onClick={() => { handleSearch() }}>
-          <Search className={Style.search} />
+        <button >
+          <Search className={Style.search} onClick={() => handleSearch()} />
         </button>
       </div>
+
     </nav>);
 }

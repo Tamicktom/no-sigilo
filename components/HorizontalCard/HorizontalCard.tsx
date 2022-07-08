@@ -23,7 +23,13 @@ export default function HorizontalCard({
 }: Props) {
 
     return (
-        <div className={Style.holder}>
+        <div
+            className={Style.holder}
+            onClick={() => {
+                window.location.href = '/produto'
+            }}
+
+        >
             <div className={Style.left}>
                 <Image
                     src={product_image || default_img}
