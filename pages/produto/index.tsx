@@ -63,7 +63,7 @@ const Top = () => {
     )
 }
 
-const buildImageGallery = (image_list: StaticImageData[]) => {
+const BuildImageGallery = (image_list: StaticImageData[]) => {
     const keyValue = useId();
     let image_gallery = []
     for (let i = 0; i < image_list.length; i++) {
@@ -98,7 +98,7 @@ const ImageHolder = (image_list: any) => {
                 speed={300}
                 className={Style.image_gallery}
             >
-                {buildImageGallery(image_list.image_list)}
+                {BuildImageGallery(image_list.image_list)}
             </Swiper>
             <div className={Style.main_image}>
                 <Image
