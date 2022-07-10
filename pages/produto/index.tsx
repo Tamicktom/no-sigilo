@@ -3,6 +3,7 @@ import { useId, useState } from 'react'
 import { NavBar } from '../../components/NavBar/NavBar';
 import GlobalHead from '../../components/GlobalHead/GlobalHead';
 import NoSigiloFooter from '../../components/NoSigiloFooter/NoSigiloFooter';
+import { UnitsLeft } from '../../components/MicroComponents/MicroComponents';
 
 import Style from './Product.module.sass'
 
@@ -13,28 +14,32 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-import defaultImage from '../../public/images/default_img_product.png';
+import default_img_1 from '../../public/images/default_img_1.png';
+import default_img_2 from '../../public/images/default_img_2.png';
+import default_img_3 from '../../public/images/default_img_3.png';
+import default_img_4 from '../../public/images/default_img_4.png';
+import default_img_5 from '../../public/images/default_img_5.png';
 
 const ProductImages: StaticImageData[] = [
-    defaultImage, defaultImage, defaultImage, defaultImage
+    default_img_1, default_img_2, default_img_3, default_img_4, default_img_5
 ]
 
-type Props = {}
-
-export default function index({ }: Props) {
-
+export default function index() {
     return (
         <div>
             <GlobalHead />
             <NavBar />
-            <main style={{ color: 'white', marginTop: '75px', width: '100%' }}>
+
+            <main className={Style.product_page}>
                 <div className={Style.holder}>
                     <Top />
                     <ImageHolder
                         image_list={ProductImages} />
                     <div className={Style.price_info_holder}>
                         <PriceInfo />
-                        <UnitsLeft />
+                        <div className={Style.right}>
+                            {UnitsLeft(10)}
+                        </div>
                     </div>
                     <ProductDescription />
                 </div>
@@ -88,9 +93,6 @@ const BuildImageGallery = (image_list: any, change_image: (num: number) => void)
 const ImageHolder = (image_list: any) => {
     const [actualImage, setActualImage] = useState(ProductImages[0]);
 
-    console.log(image_list);
-
-
     const changeImage = (index: number) => {
         console.log('trocado para ' + index);
         setActualImage(image_list.image_list[index]);
@@ -101,10 +103,12 @@ const ImageHolder = (image_list: any) => {
             <Swiper
                 modules={[Pagination, A11y]}
                 direction="vertical"
-                spaceBetween={5}
+                spaceBetween={10}
                 slidesPerView={3}
                 loop={false}
                 speed={300}
+                height={200}
+                width={150}
                 className={Style.image_gallery}
             >
                 {BuildImageGallery(image_list.image_list, changeImage)}
@@ -139,16 +143,6 @@ const PriceInfo = () => {
                     <p>R$ XX<span>,xx</span></p>
                 </div>
             </div>
-        </div>
-    )
-}
-
-const UnitsLeft = () => {
-    return (
-        <div className={Style.right}>
-            <p>Restam</p>
-            <p>XX</p>
-            <p>unidades</p>
         </div>
     )
 }

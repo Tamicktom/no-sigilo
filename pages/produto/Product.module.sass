@@ -2,6 +2,11 @@
 @import "../../styles/functions"
 @import "../../styles/variables"
 
+.product_page
+    color: white
+    margin-top: 75px
+    width: 100%
+
 .holder
     @include w-h(100%, fit-content)
     font-family: $default-font
@@ -22,7 +27,6 @@
             padding-left: 10px
         .right
             @include w-h(30%, 100%)
-            background: red //! apagar dps
             padding-right: 10px
     .top_bottom
         @include w-h(100%, 50px)
@@ -40,12 +44,10 @@
     margin-bottom: 1rem
 
 //* @note image holder
-
 .image_holder
     @include w-h(100%, 400px)
     @include flex-display
     flex-direction: row
-    background: green //! apagar dps
     margin-top: 25px
     .image_gallery
         @include w-h(20%, 100%)
@@ -54,32 +56,29 @@
         overflow: hidden
         .image_gallery_item
             @include flex-display
-            @include w-h(90%, 50px)
+            @include w-h(90%, 150px)
+            overflow: hidden
             margin-bottom: 10px
             border: 2px solid $color-1
             border-radius: $border
     .main_image
         @include w-h(80%, 100%)
         @include flex-display
-        background: red //! apagar dps
 
 //* @note price info
 .price_info_holder
     @include w-h(100%, 150px)
     @include flex-display
     flex-direction: row
-    background: cyan //! apagar dps
     margin-top: 10px
     .left
         @include w-h(80%, 100%)
         @include flex-display
         flex-direction: column
-        background: yellow //! apagar dps
         .above
             @include w-h(100%, 40%)
             @include flex-display
             flex-direction: row
-            background: red //! apagar dps
             font-family: $tittle-font
             :nth-child(1)
                 @include w-h(15%, 100%)
@@ -89,7 +88,6 @@
             :nth-child(2)
                 @include w-h(85%, 100%)
                 flex-direction: row
-                background: magenta //! apagar dps
                 >p
                     @include w-h(50%, 100%)
                     margin-left: 10px
@@ -100,7 +98,6 @@
             @include w-h(100%, 60%)
             @include flex-display
             flex-direction: row
-            background: green //! apagar dps
             font-family: $tittle-font
             :nth-child(1)
                 @include w-h(15%, 100%)
@@ -110,7 +107,7 @@
             :nth-child(2)
                 @include w-h(85%, 100%)
                 flex-direction: row
-                background: magenta //! apagar dps
+                @include gradient-text($gradient-1)
                 >p
                     @include w-h(50%, 100%)
                     margin-left: 10px
@@ -122,15 +119,15 @@
         @include w-h(20%, 100%)
         @include flex-display
         flex-direction: column
-        background: blue //! apagar dps
 
 //* @note Product detailed description
 .product_description
     @include w-h(100%, fit-content)
     margin-top: 15px
     h2
+        @include gradient-text($gradient-1)
         font-family: $tittle-font
-        font-size: 2em
+        font-size: 2.5em
         font-weight: 500
         margin-bottom: 1rem
         margin-left: 10px

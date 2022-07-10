@@ -1,0 +1,26 @@
+//* import _function and _variables
+@import "../../styles/functions"
+@import "../../styles/variables"
+
+
+//* @note units left
+.units_left
+    @include w-h (100%, 100%)
+    margin-right: 10px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    font-family: $default-font
+    font-weight: 700
+    font-size: 12pt
+    text-align: center
+    :nth-child(1)
+        line-height: 90%
+    :nth-child(2)
+        line-height: 90%
+    :nth-child(3)
+        line-height: 90%
+    .qtd
+        @include gradient-text($gradient-1)
+        font-size: 32pt
