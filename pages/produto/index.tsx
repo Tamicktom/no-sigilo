@@ -63,7 +63,7 @@ const Top = () => {
     )
 }
 
-const BuildImageGallery = (image_list: StaticImageData[]) => {
+const BuildImageGallery = (image_list: any, change_image: (num: number) => void) => {
     const keyValue = useId();
     let image_gallery = []
     for (let i = 0; i < image_list.length; i++) {
@@ -71,6 +71,7 @@ const BuildImageGallery = (image_list: StaticImageData[]) => {
             <SwiperSlide
                 key={'productImage_' + keyValue + i}
                 className={Style.image_gallery_item}
+                onClick={() => change_image(i)}
             >
                 <Image
                     src={image_list[i]}
@@ -87,6 +88,14 @@ const BuildImageGallery = (image_list: StaticImageData[]) => {
 const ImageHolder = (image_list: any) => {
     const [actualImage, setActualImage] = useState(ProductImages[0]);
 
+    console.log(image_list);
+
+
+    const changeImage = (index: number) => {
+        console.log('trocado para ' + index);
+        setActualImage(image_list.image_list[index]);
+    }
+
     return (
         <div className={Style.image_holder}>
             <Swiper
@@ -98,7 +107,7 @@ const ImageHolder = (image_list: any) => {
                 speed={300}
                 className={Style.image_gallery}
             >
-                {BuildImageGallery(image_list.image_list)}
+                {BuildImageGallery(image_list.image_list, changeImage)}
             </Swiper>
             <div className={Style.main_image}>
                 <Image
