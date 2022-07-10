@@ -1,0 +1,21 @@
+//* import _functions and _variables
+@import "../../styles/functions"
+@import "../../styles/variables"
+
+.holder
+    @include w-h(100%, fit-content)
+    @include flex-display
+    flex-direction: column
+    margin-top: 25px
+    >div
+        @include w-h(100%, fit-content)
+        @include flex-display
+        flex-direction: column
+    p
+        font-family: $default-font
+        color: white
+        margin-top: 15px
+
+.logo_holder
+    svg
+        transform: scale(1.7)
