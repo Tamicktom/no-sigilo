@@ -37,7 +37,6 @@ export function NavBar({ }) {
         isOpen={isOpenShoppingKart}
         toggler={toggleShoppingKart} />
 
-
       <div className={Style.top}>
         <button >
           <Settings className={Style.settings} onClick={() => toggleOptions()} />

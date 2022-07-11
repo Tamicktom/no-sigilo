@@ -17,6 +17,10 @@ export default function SuperOffers({ section_name }: Props) {
                 product_short_description='Descrição breve, Descrição breve, Descrição breve, Descrição breve, '
                 product_qtd={10}
                 product_image=''
+                show_pix={true}
+                show_units_left={true}
+                show_discount={true}
+                product_discount={0.25}
             />
             <HorizontalCard
                 product_price={0.5}
@@ -25,6 +29,10 @@ export default function SuperOffers({ section_name }: Props) {
                 product_short_description='Descrição breve, Descrição breve, Descrição breve, Descrição breve, '
                 product_qtd={10}
                 product_image=''
+                show_pix={true}
+                show_units_left={true}
+                show_discount={true}
+                product_discount={0.15}
             />
             <HorizontalCard
                 product_price={0.5}
@@ -33,6 +41,10 @@ export default function SuperOffers({ section_name }: Props) {
                 product_short_description='Descrição breve, Descrição breve, Descrição breve, Descrição breve, '
                 product_qtd={10}
                 product_image=''
+                show_pix={true}
+                show_units_left={true}
+                show_discount={true}
+                product_discount={0.05}
             />
         </div>
     )

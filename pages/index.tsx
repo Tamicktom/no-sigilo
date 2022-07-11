@@ -9,7 +9,7 @@ import MainBanner from '../components/MainBanner/MainBanner';
 import SuperOffers from '../components/SuperOfertas/SuperOffers';
 import NoSigiloFooter from '../components/NoSigiloFooter/NoSigiloFooter';
 
-const Home: NextPage = () => {
+const Home: NextPage = () => {  
 
   return (
     <div className={Style.pageComposition}>

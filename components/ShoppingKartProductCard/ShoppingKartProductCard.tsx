@@ -1,58 +1,45 @@
-import Image from 'next/image'
 import React from 'react'
-import Style from './HorizontalCard.module.sass';
+import Image from 'next/image'
+
+import Style from './ShoppingKartProductCard.module.sass'
+
+const default_img = '/images/default_img_product.png'
 
 type Props = {
     product_image: string
     product_name: string
     product_price: number
-    product_discount: number
     product_qtd: number
     product_company_brand: string
     product_short_description: string
-    show_pix: boolean
-    show_units_left: boolean
-    show_discount: boolean
 }
 
-const default_img = '/images/default_img_product.png'
-
-export default function HorizontalCard({
+export default function ShoppingKartProductCard({
     product_image,
     product_name,
     product_company_brand,
     product_short_description,
     product_qtd,
     product_price,
-    product_discount = 0,
-    show_pix,
-    show_units_left,
-    show_discount
 }: Props) {
-
     return (
         <div
             className={Style.holder}
             onClick={() => {
-                window.location.href = '/produto'
+                window.location.href = '/produto' //* @note redirect to product page
             }}
-
         >
             <div className={Style.left}>
-                <Image
-                    src={product_image || default_img}
-                    alt={product_name}
-                    width={'100%'}
-                    height={'100%'}
-                />
+                <div className={Style.img_holder}>
+                    <Image
+                        src={product_image || default_img}
+                        alt={product_name}
+                        width={'100%'}
+                        height={'100%'}
+                    />
+                </div>
             </div>
             <div className={Style.right}>
-                <div className={Style.discount_holder}>
-                    {
-                        Discount(product_discount, show_discount)
-                    }
-                </div>
-
                 <div className={Style.product_info}>
 
                     <div className={Style.top}>
@@ -68,29 +55,17 @@ export default function HorizontalCard({
 
                     <div className={Style.bottom}>
                         {
-                            Price(product_price, show_pix)
+                            Price(product_price)
                         }
                         <div className={Style.bottom_right}>
                             {
-                                UnitsLeft(product_qtd || 0, show_units_left)
+                                UnitsOnKart(product_qtd || 0)
                             }
                         </div>
                     </div>
 
                 </div>
             </div>
-        </div>
-    )
-}
-
-const Discount = (discount: number, showDiscount: boolean) => {
-    if (!showDiscount || discount == 0) return <></>
-
-    const discount_percentage = (discount * 100).toFixed(0)
-
-    return (
-        <div className={Style.discount}>
-            {discount_percentage}% OFF
         </div>
     )
 }
@@ -113,7 +88,7 @@ const ShortDescription = (pt_name: string, pt_description: string) => {
     )
 }
 
-const Price = (price: number, show_pix: boolean) => {
+const Price = (price: number) => {
     if (typeof price != 'number') return <p>{price}</p>
 
     let big_price: string = price.toString().split('.')[0]
@@ -123,9 +98,6 @@ const Price = (price: number, show_pix: boolean) => {
     if (small_price == undefined) small_price = '00'
     if (small_price.length == 1) small_price = small_price + '0'
 
-    let pix: any = '';
-    if (show_pix) pix = <p className={Style.price_complement}>A vista no PIX</p>
-
     return (
         <div className={Style.bottom_left}>
             <p className={Style.price}>
@@ -134,20 +106,17 @@ const Price = (price: number, show_pix: boolean) => {
                     ,{small_price}
                 </span>
             </p>
-            {pix}
         </div>
     )
 }
 
-const UnitsLeft = (qtd: number, show: boolean) => {
+const UnitsOnKart = (qtd: number) => {
     let left: any = '';
     let units: string = 'unidades';
-    if (show) left = <p>Restam</p>
     if (qtd == 1) units = 'unidade'
 
     return (
         <div>
-            {left}
             <p className={Style.qtd}>{qtd}</p>
             <p>{units}</p>
         </div>

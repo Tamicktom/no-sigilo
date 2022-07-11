@@ -12,30 +12,18 @@
         cursor: pointer
 
 .left
-    width: 25%
+    @include w-h(30%, 100%)
     @include flex-display()
+    .img_holder
+        @include w-h(90%, fit-content)
+        margin-top: -50px
 
 .right
-    width: 75%
+    @include w-h(70%, 100%)
     font-family: $default-font
 
-.discount_holder
-    @include w-h (100%, 25px)
-    display: flex
-    justify-content: right
-    align-items: center
-    .discount
-        @include w-h (fit-content, 100%)
-        @include flex-display()
-        padding: 0 10px
-        border: 2px solid $color-2
-        border-radius: $border
-        font-size: 1rem
-        margin-right: 10px
-        color: $color-2
-
 .product_info
-    @include w-h (100%, 125px)
+    @include w-h (100%, 150px)
 
     //* @note Informações do produto
 
@@ -45,26 +33,23 @@
             font-size: 0.8rem
             font-weight: bold
         .name_short_description
-            font-size: .9rem
+            font-size: 0.9rem
             line-height: 90%
 
     .bottom
         @include w-h (100%, 70%)
         @include flex-display()
         .bottom_left
-            @include w-h (60%, 100%)
+            @include w-h (65%, 100%)
             font-weight: 700
             .price
-                font-size: 2.1rem
+                font-size: 1.9rem
                 line-height: 90%
                 @include gradient-text ($gradient-1)
             .small_price
                 font-size: 1rem
-            .price_complement
-                font-size: 12pt
-                line-height: 25px
         .bottom_right
-            @include w-h (40%, 100%)
+            @include w-h (35%, 100%)
             @include flex-display
             >div
                 @include w-h (fit-content, 100%)
