@@ -46,6 +46,18 @@ export default function SuperOffers({ section_name }: Props) {
                 show_discount={true}
                 product_discount={0.05}
             />
+            <HorizontalCard
+                product_price={0.5}
+                product_company_brand='Teste'
+                product_name='Gel'
+                product_short_description='Descrição breve, Descrição breve, Descrição breve, Descrição breve, '
+                product_qtd={10}
+                product_image=''
+                show_pix={true}
+                show_units_left={true}
+                show_discount={true}
+                product_discount={0.05}
+            />
         </div>
     )
 }

@@ -1,41 +1,41 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from "next";
 
-function loremIpsum() {
-    let res = '';
-    fetch('https://baconipsum.com/api/?type=meat-and-filler')
-        .then(response => { return response.json() })
-        .then(data => {
-            res = data;
-        })
-        .catch((erro) => {
-        })
-    return res;
-}
-
-type Produto = {
-    id_product: string | number,
-    units_left: number,
-    name_product: string,
-    short_description: string,
-    long_description: string,
-    price_product: string | number,
-    promotion: boolean,
-    image: string
-}
-
-export default function handler(
-    req: NextApiRequest,
-    res: NextApiResponse<Produto>
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
 ) {
-    res.status(200).json({
-        id_product: Math.random() * 10,
-        units_left: Math.random() * 80,
-        name_product: 'Produto de Exemplo',
-        short_description: 'Descrição de exemplo, descrição de exemplo',
-        long_description: loremIpsum(),
-        price_product: (Math.random() * 10),
-        promotion: false,
-        image: ''
-    })
+  return new Promise((resolve, reject) => {
+    fetch("http://26.120.58.152/novaApi/public_html/api/produto/find_all/false")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        res
+          .status(200)
+          .setHeader("Cache-Control", "max-age=180000")
+          .setHeader("Content-Type", "application/json")
+          .json(data);
+      })
+      .catch((erro) => console.log("deu ruim"));
+  });
 }
+
+// import { getData } from "../../helper";
+// export default async function(req, res) {
+//   return new Promise((resolve, reject) => {
+//     getData()
+//       .then(response => {
+//         res.statusCode = 200
+//         res.setHeader('Content-Type', 'application/json');
+//         res.setHeader('Cache-Control', 'max-age=180000');
+//         res.end(JSON.stringify(response));
+//         resolve();
+//       })
+//       .catch(error => {
+//         res.json(error);
+//         res.status(405).end();
+//         resolve(); // in case something goes wrong in the catch block (as vijay commented)
+//       });
+//   });
+// };

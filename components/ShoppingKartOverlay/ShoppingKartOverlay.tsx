@@ -110,10 +110,12 @@ const CheckoutPricePreview = ({ total }: CheckoutProps) => {
 }
 
 const ProductsOnKart = (product_list: [ProductProps]) => {
+    const id = React.useId();
     let res = [];
     for (let i = 0; i < product_list.length; i++) {
         res.push(
             <ShoppingKartProductCard
+                key={id + i}
                 product_image={product_list[i].product_image}
                 product_name={product_list[i].product_name}
                 product_company_brand={product_list[i].product_company_brand}

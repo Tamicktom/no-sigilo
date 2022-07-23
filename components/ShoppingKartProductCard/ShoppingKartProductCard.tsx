@@ -22,6 +22,8 @@ export default function ShoppingKartProductCard({
     product_qtd,
     product_price,
 }: Props) {
+
+
     return (
         <div
             className={Style.holder}

@@ -9,6 +9,7 @@ import CarrinhoCompras from '../../design/icons/CarrinhoCompras/CarrinhoCompras'
 import Search from '../../design/icons/Search/Search';
 import ShoppingKartOverlay from "../ShoppingKartOverlay/ShoppingKartOverlay";
 
+
 export function NavBar({ }) {
 
   const [isOpenOptions, setIsOpenOptions] = React.useState(false);

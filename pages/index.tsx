@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import type { NextPage } from 'next'
 import GlobalHead from '../components/GlobalHead/GlobalHead';
 import Style from './index.module.sass';
@@ -9,13 +9,29 @@ import MainBanner from '../components/MainBanner/MainBanner';
 import SuperOffers from '../components/SuperOfertas/SuperOffers';
 import NoSigiloFooter from '../components/NoSigiloFooter/NoSigiloFooter';
 
-const Home: NextPage = () => {  
+export const getStaticProps = async () => {
+  const res = await fetch('http://26.120.58.152/novaApi/public_html/api/produto/find_all/false');
+  const data = await res.json();
+
+  return {
+    props: {
+      produtos: data
+    }
+  }
+
+}
+
+const Home: NextPage = ({ produtos }: any) => {
+
+
+
+
+  console.log(produtos.dados)
 
   return (
     <div className={Style.pageComposition}>
 
       <GlobalHead />
-
       <NavBar />
 
       <main className={Style.pageComposition}>
@@ -30,4 +46,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default Home 
